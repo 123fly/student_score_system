@@ -10,9 +10,8 @@ Rails.application.routes.draw do
       get'/manager'=>'page#manager'
       get'/student'=>'page#student'
       post '/register_user' => 'page#register_user'
-      post'/user_register'=>'page#user_register'
       post'/user_landing'=>'page#user_landing'
-  post'/student_landing'=>'page#student_landing'
+      post'/student_landing'=>'page#student_landing'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

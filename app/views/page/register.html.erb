@@ -1,22 +1,31 @@
 <div align="center">
+  <h3>欢迎注册</h3>
     <%= form_tag("/register_user") do %>
-        <%= radio_button_tag(:m, "manager") %>
-        <%= label_tag("管理员" ) %>
-        <%= radio_button_tag(:s, "student") %>
-        <%= label_tag("学员") %>
-        <br>
-        <%= label_tag( "Name:") %>
-        <%= text_field_tag(:name) %>
 
-        <br>
+        <dl>
+        <%= label_tag( :name, "Name:") %>
+             <%= text_field_tag(:name) %>
+            <% if @users.errors[:name].any? %>
+             <dd>  <%= @users.errors[:name][0]%></dd>
+          <% end %>
+              </dl>
         <%= label_tag("ID:") %>
-        <%= text_field_tag(:id) %>
+        <%= text_field_tag(:user_id) %>
+      <% if @users.errors[:user_id].any? %>
+          <dd>  <%= @users.errors[:user_id][0]%></dd>
+      <% end %>
         <br>
         <%= label_tag("Password:") %>
         <%= password_field_tag(:pass) %>
+      <% if @users.errors[:password].any? %>
+          <dd>  <%= @users.errors[:password][0]%></dd>
+      <% end %>
         <br>
         <%= label_tag("Email:") %>
         <%= text_field_tag(:email ) %>
+      <% if @users.errors[:email].any? %>
+          <dd>  <%= @users.errors[:email][0]%></dd>
+      <% end %>
         <br>
         <%= submit_tag("注册") %>
     <% end %>

@@ -7,5 +7,8 @@ class User < ActiveRecord::Base
     false
   end
 
+  validates :user_id, :name, :password, :email, presence: true
+  validates :user_id, :name, uniqueness: {case_sensitive: false}
+
 
 end

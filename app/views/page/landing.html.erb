@@ -9,15 +9,15 @@
          <%= password_field_tag(:pass) %>
 
       <br>
-        <%= submit_tag("管理员登录") %>
+        <%= submit_tag("登录") %>
         <%end%>
-  <%= form_tag("/user_register") do %>
-      <%= submit_tag("注册") %>
-  <%end%>
-  <%= form_tag("/student_landing") do %>
-      <%= submit_tag('学员登录') %>
-  <%end%>
+    <div>
+      <button onclick="openRegisterPage()">注册</button>
+    </div>
+
+
 
 </div>
-
-
+<% if flash[:notice]%>
+<div><%=  flash[:notice]  %></div>
+<% end  %>
