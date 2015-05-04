@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ability_to_communicate: MyString
+  professional_quality: MyString
+  ability_to_learn: MyString
+  speech_ability: MyString
+  comprehensive_ability: MyString
+
+two:
+  name: MyString
+  ability_to_communicate: MyString
+  professional_quality: MyString
+  ability_to_learn: MyString
+  speech_ability: MyString
+  comprehensive_ability: MyString

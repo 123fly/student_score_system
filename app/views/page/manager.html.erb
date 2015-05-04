@@ -1,6 +1,46 @@
-
-  <div>
-        <p>
-            我是个管理员
-        </p>
+<div>
+  <div class="title">
+    <div class="return">
+      <button onclick="returnLandingPage()">注销</button>
+    </div>
+    <div>
+      <button onclick="openManagerPage()">评分</button>
+      <button onclick="openSearchPage()">查询</button>
+    </div>
   </div>
+  <div id="score">
+    <%= form_tag("/save") do %>
+        <%= label_tag(:name, "姓名:") %>
+        <%= text_field_tag(:name) %>
+        <br>
+        沟通能力:<%= radio_button_tag 'fee', 'A' %> A
+        <%= radio_button_tag 'fee', 'B' %> B
+        <%= radio_button_tag 'fee', 'C' %> C
+        <%= radio_button_tag 'fee', 'D' %> D
+        <br>
+        职业素养:<%= radio_button_tag 'A', 'A' %> A
+        <%= radio_button_tag 'A', 'B' %> B
+        <%= radio_button_tag 'A', 'C' %> C
+        <%= radio_button_tag 'A', 'D' %> D
+        <br>
+        学习能力:<%= radio_button_tag 'B', 'A' %> A
+        <%= radio_button_tag 'B', 'B' %> B
+        <%= radio_button_tag 'B', 'C' %> C
+        <%= radio_button_tag 'B', 'D' %> D
+        <br>
+        演讲能力:<%= radio_button_tag 'C', 'A' %> A
+        <%= radio_button_tag 'C', 'B' %> B
+        <%= radio_button_tag 'C', 'C' %> C
+        <%= radio_button_tag 'C', 'D' %> D
+        <br>
+        综合能力:<%= radio_button_tag 'D', 'A' %> A
+        <%= radio_button_tag 'D', 'B' %> B
+        <%= radio_button_tag 'D', 'C' %> C
+        <%= radio_button_tag 'D', 'D' %> D
+        <br>
+        <%= submit_tag("保存") %>
+    <% end %>
+  </div>
+</div>
+
+

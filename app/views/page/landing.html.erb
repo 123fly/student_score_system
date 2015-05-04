@@ -1,23 +1,21 @@
-
 <div align="center">
-    <div class="title"><h1>欢迎来到评分系统</h1></div>
-         <%= form_tag("/user_landing") do %>
-         <%= label_tag("ID:") %>
-        <%= text_field_tag(:id) %>
-         <br>
-         <%= label_tag("Password:") %>
-         <%= password_field_tag(:pass) %>
-
+  <div class="title"><h1>欢迎来到评分系统</h1></div>
+  <%= form_tag("/user_landing") do %>
+      <%= label_tag("帐号:") %>
+      <%= text_field_tag(:id) %>
       <br>
-        <%= submit_tag("登录") %>
-        <%end%>
-    <div>
-      <button onclick="openRegisterPage()">注册</button>
-    </div>
-
+      <%= label_tag("密码:") %>
+      <%= password_field_tag(:pass) %>
+      <% if flash[:notice] %>
+          <div><%= flash[:notice] %></div>
+      <% end %>
+      <br>
+      <%= submit_tag("登录") %>
+  <% end %>
+  <div id="register">
+    <button onclick="openRegisterPage()">注册</button>
+  </div>
 
 
 </div>
-<% if flash[:notice]%>
-<div><%=  flash[:notice]  %></div>
-<% end  %>
+

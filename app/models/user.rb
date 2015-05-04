@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates :user_id, :name, :password, :email, presence: true
   validates :user_id, :name, uniqueness: {case_sensitive: false}
-
-
+  validates_format_of  :email, :message => "邮箱格式不正确!", :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_length_of :password, :in => 6..12
+  
 end

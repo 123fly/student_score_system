@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
-        # get ''
+  # get ''
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-      root 'page#home'
-      get'/landing'=>'page#landing'
-      get '/register'=>'page#register'
-      get'/manager'=>'page#manager'
-      get'/student'=>'page#student'
-      post '/register_user' => 'page#register_user'
-      post'/user_landing'=>'page#user_landing'
-      post'/student_landing'=>'page#student_landing'
+  root 'page#home'
+  get '/landing' => 'page#landing'
+  get '/register' => 'page#register'
+  get '/manager' => 'page#manager'
+  get '/student' => 'page#student'
+  get '/search' => 'page#search'
+  post '/register_user' => 'page#register_user'
+  post '/user_landing' => 'page#user_landing'
+  post '/student_landing' => 'page#student_landing'
+  post '/student_finding' => 'page#student_finding'
+  post '/save' => 'page#save'
+  post '/manager_search' => 'page#manager_search'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

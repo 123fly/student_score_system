@@ -1,17 +1,25 @@
-<div class="return">
-  <button onclick="returnLandingPage()">注销</button>
+<div>
+  <div class="title">
+    <div class="return">
+      <button onclick="returnLandingPage()">注销</button>
+    </div>
+    <button onclick="openManagerPage()">评分</button>
+    <button onclick="openSearchPage()">查询</button>
+  </div>
 </div>
 <div align="center">
-
-  <%= form_tag("/student_finding") do %>
+  <%= form_tag("/manager_search") do %>
 
       <dl>
 
         <%= text_field_tag(:name) %>
         <%= submit_tag("查找") %>
+
       </dl>
+
   <% end %>
   <% if @scores != nil %>
+     <div class="p">
       <p>
         姓名：<%= @scores.name %>
       </p>
@@ -20,12 +28,12 @@
         沟通能力：<%= @scores.ability_to_communicate %>
       </p>
 
-      <p>
+      <p>>
         职业素养：<%= @scores.professional_quality %>
       </p>
 
       <p>
-        学习能力： <%= @scores.ability_to_learn %>
+        学习能力： <%= @scores.ability_to_learn%>
       </p>
 
       <p>
@@ -35,5 +43,10 @@
       <p>
         综合能力：<%= @scores.comprehensive_ability %>
       </p>
-  <% end %>
+
+      <a href="">
+        <li> <p>修改</p></li>
+      </a>
+     </div>
+<% end %>
 </div>

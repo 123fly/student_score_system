@@ -1,33 +1,32 @@
 <div align="center">
   <h3>欢迎注册</h3>
-    <%= form_tag("/register_user") do %>
+  <%= form_tag("/register_user") do %>
 
-        <dl>
-        <%= label_tag( :name, "Name:") %>
-             <%= text_field_tag(:name) %>
-            <% if @users.errors[:name].any? %>
-             <dd>  <%= @users.errors[:name][0]%></dd>
-          <% end %>
-              </dl>
-        <%= label_tag("ID:") %>
-        <%= text_field_tag(:user_id) %>
+      <%= label_tag(:name, "姓名:") %>
+      <%= text_field_tag(:name) %>
+      <% if @users.errors[:name].any? %>
+          <dd>  <%= @users.errors[:name][0] %></dd>
+      <% end %>
+      <br>
+      <%= label_tag("帐号:") %>
+      <%= text_field_tag(:user_id) %>
       <% if @users.errors[:user_id].any? %>
-          <dd>  <%= @users.errors[:user_id][0]%></dd>
+          <dd>  <%= @users.errors[:user_id][0] %></dd>
       <% end %>
-        <br>
-        <%= label_tag("Password:") %>
-        <%= password_field_tag(:pass) %>
+      <br>
+      <%= label_tag("密码:") %>
+      <%= password_field_tag(:pass) %>
       <% if @users.errors[:password].any? %>
-          <dd>  <%= @users.errors[:password][0]%></dd>
+          <dd>  <%= @users.errors[:password][0] %></dd>
       <% end %>
-        <br>
-        <%= label_tag("Email:") %>
-        <%= text_field_tag(:email ) %>
+      <br>
+      <%= label_tag("邮箱:") %>
+      <%= text_field_tag(:email) %>
       <% if @users.errors[:email].any? %>
-          <dd>  <%= @users.errors[:email][0]%></dd>
+          <dd>  <%= @users.errors[:email][0] %></dd>
       <% end %>
-        <br>
-        <%= submit_tag("注册") %>
-    <% end %>
-  </div>
+      <br>
+      <%= submit_tag("注册") %>
+  <% end %>
+</div>
 

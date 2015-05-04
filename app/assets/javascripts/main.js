@@ -8,10 +8,12 @@ function openNewPage() {
 function openRegisterPage(){
     window.location.href="register.html";
 }
-function openStudentPage() {
-     window.location.href="student.html"
-}
 function openManagerPage(){
     window.location.href="manager.html"
 }
-
+function openSearchPage(){
+    window.location.href='search.html'
+}
+function returnLandingPage(){
+    window.location.href='landing.html'
+}
