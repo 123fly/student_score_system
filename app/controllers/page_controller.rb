@@ -50,11 +50,11 @@ class PageController < ApplicationController
   def save
     @score=Score.new
     @score.name=params[:name]
-    @score.ability_to_communicate = params[:fee]
-    @score.professional_quality = params[:A]
-    @score.ability_to_learn = params[:B]
-    @score.speech_ability = params[:C]
-    @score.comprehensive_ability = params[:D]
+    @score.ability_to_communicate = params[:abilit_to_communicate]
+    @score.professional_quality = params[:professional_quality]
+    @score.ability_to_learn = params[:ability_to_learn]
+    @score.speech_ability = params[:speech_ability]
+    @score.comprehensive_ability = params[:comprehensive_ability]
     @score.save
     render 'manager'
   end
