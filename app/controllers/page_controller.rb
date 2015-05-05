@@ -30,18 +30,14 @@ class PageController < ApplicationController
   end
 
   def register_user
-    @users = User.new
-    @users.name = params[:name]
-    @users.user_id = params[:user_id]
-    @users.password = params[:pass]
-    @users.email=params[:email]
+    @users = User.new(user_params)
+
     if @users.save
       render "landing"
     else
       render 'register'
     end
   end
-
 
   def manager
 
@@ -64,14 +60,24 @@ class PageController < ApplicationController
   end
 
   def student_finding
-    @scores = Score.find_by_name(params[:name])
+    @scores = Score.where('name = ?',params[:name])
     render 'student'
   end
 
   def manager_search
-    @scores = Score.find_by_name(params[:name])
+    @scores = Score.where("name = ?", params[:name])
+
+      render 'search'
+  end
+
+  def history
+    @scores = Score.all
     render 'search'
   end
 
+  private
+  def user_params
+    params.require(:users).permit(:name, :user_id, :pass, :email)
+  end
 
 end
