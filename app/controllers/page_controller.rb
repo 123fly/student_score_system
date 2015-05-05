@@ -53,7 +53,7 @@ class PageController < ApplicationController
   end
 
   def score_params
-    params.permit(:name, :abilit_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability)
+    params.permit(:name, :ability_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability)
   end
 
   def student
