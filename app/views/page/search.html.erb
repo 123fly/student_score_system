@@ -9,44 +9,27 @@
 </div>
 <div align="center">
   <%= form_tag("/manager_search") do %>
-
-      <dl>
-
         <%= text_field_tag(:name) %>
         <%= submit_tag("查找") %>
-
-      </dl>
-
-  <% end %>
+    <% end %>
+  </div>
+  <div class="history">
+    <%= form_tag('/history') do %>
+        <%= submit_tag('历史查询') %>
+    <% end %>
+  </div>
   <% if @scores != nil %>
-     <div class="p">
-      <p>
-        姓名：<%= @scores.name %>
-      </p>
-
-      <p>
-        沟通能力：<%= @scores.ability_to_communicate %>
-      </p>
-
-      <p>>
-        职业素养：<%= @scores.professional_quality %>
-      </p>
-
-      <p>
-        学习能力： <%= @scores.ability_to_learn%>
-      </p>
-
-      <p>
-        沟通能力：<%= @scores.speech_ability %>
-      </p>
-
-      <p>
-        综合能力：<%= @scores.comprehensive_ability %>
-      </p>
-
-      <a href="">
-        <li> <p>修改</p></li>
-      </a>
-     </div>
+      <% @scores.each do |score| %>
+          <tr>
+            <td>姓名：<%= score.name %></td>
+            <td>沟通能力：<%= score.ability_to_communicate %></td>
+            <td>职业素养：<%= score.professional_quality %></td>
+            <td>学习能力：<%= score.ability_to_learn %></td>
+            <td>沟通能力：<%= score.speech_ability %></td>
+            <td>综合能力：<%= score.comprehensive_ability %></td>
+            <td><%= link_to '修改'%></td>
+            <br>
+          </tr>
+      <% end %>
 <% end %>
 </div>
