@@ -30,8 +30,11 @@ class PageController < ApplicationController
   end
 
   def register_user
-    @users = User.new(user_params)
-
+    @users = User.new
+    @users.name = params[:name]
+    @users.user_id = params[:user_id]
+    @users.password = params[:pass]
+    @users.email=params[:email]
     if @users.save
       render "landing"
     else
@@ -39,12 +42,19 @@ class PageController < ApplicationController
     end
   end
 
+
   def manager
 
   end
 
   def save
-    @score=Score.new(score_params)
+    @score=Score.new
+    @score.name=params[:name]
+    @score.ability_to_communicate = params[:abilit_to_communicate]
+    @score.professional_quality = params[:professional_quality]
+    @score.ability_to_learn = params[:ability_to_learn]
+    @score.speech_ability = params[:speech_ability]
+    @score.comprehensive_ability = params[:comprehensive_ability]
     @score.save
     render 'manager'
   end
@@ -54,27 +64,14 @@ class PageController < ApplicationController
   end
 
   def student_finding
-    @scores = Score.where('name = ?',params[:name])
+    @scores = Score.find_by_name(params[:name])
     render 'student'
   end
 
   def manager_search
-    @scores = Score.where("name = ?", params[:name])
-
-      render 'search'
-  end
-
-  def history
-    @scores = Score.all
+    @scores = Score.find_by_name(params[:name])
     render 'search'
   end
 
 
-  def user_params
-    params.permit(:name, :user_id, :password, :email)
-  end
-
-  def score_params
-    params.permit(:name, :ability_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability )
-  end
 end

@@ -1,6 +1,30 @@
+.title{
 
-#register{
 
 }
+#register{
 
+  display: inline;
+  position: absolute;
+  left:678px ;
+  top: 164px;
+}
+body{
+width: 1285px;
+  height: 500px;
+  background-image: url("http://pic.sucaiw.com/up_files/bizhi/ca8e5d376d/sucaiw-bzxz88740.jpg");
+}
 
+.land{
+
+  display: inline;
+  position: absolute;
+  left: 600px;
+  top: 164px;
+}
+input{
+  border-radius: 5px;
+}
+button{
+  border-radius: 5px;
+}
