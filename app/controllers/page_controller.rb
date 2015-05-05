@@ -44,13 +44,7 @@ class PageController < ApplicationController
   end
 
   def save
-    @score=Score.new
-    @score.name=params[:name]
-    @score.ability_to_communicate = params[:abilit_to_communicate]
-    @score.professional_quality = params[:professional_quality]
-    @score.ability_to_learn = params[:ability_to_learn]
-    @score.speech_ability = params[:speech_ability]
-    @score.comprehensive_ability = params[:comprehensive_ability]
+    @score=Score.new(score_params)
     @score.save
     render 'manager'
   end
@@ -75,9 +69,12 @@ class PageController < ApplicationController
     render 'search'
   end
 
-  private
+
   def user_params
-    params.require(:users).permit(:name, :user_id, :pass, :email)
+    params.permit(:name, :user_id, :password, :email)
   end
 
+  def score_params
+    params.permit(:name, :ability_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability )
+  end
 end
