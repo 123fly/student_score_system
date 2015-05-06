@@ -10,9 +10,9 @@
   </div>
   <div id="score">
     <%= form_tag("/save") do %>
-        姓名：<%= select_tag(:name, options_from_collection_for_select(User.all, :name, :name)) %>
-        应该评第<input type="text" name="number" id="number">周
-        选择评定第<input type="number">周
+        姓名：<%= select_tag(:name, options_from_collection_for_select(User.all, :name, :name)) %>应该评第' '周
+
+        选择评定第<%= text_field_tag(:number) %>周
         <br>
         沟通能力:<%= radio_button_tag 'ability_to_communicate', 'A' %> A
         <%= radio_button_tag 'ability_to_communicate', 'B' %> B

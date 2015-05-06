@@ -74,7 +74,23 @@ class PageController < ApplicationController
     @scores = Score.all
     render 'search'
   end
+  def edit
 
+  end
+  def update
+    @scores = Score.find_by_id(params[:id])
+
+    if @scores.update(scores_params)
+      render 'manager'
+    else
+      render 'edit'
+    end
+  end
+
+  private
+  def scores_params
+    params.permit(:ability_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability)
+  end
 
 
 end
