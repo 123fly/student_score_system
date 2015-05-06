@@ -17,7 +17,7 @@
       <% end %>
       <br>
       <%= label_tag("密码:") %>
-      <%= password_field_tag(:pass) %>
+      <%= password_field_tag(:password) %>
       <% if @users.errors[:password].any? %>
           <dd>  <%= @users.errors[:password][0] %></dd>
       <% end %>
