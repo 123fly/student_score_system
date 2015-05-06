@@ -1,20 +1,27 @@
- #button button{
+#button button {
   width: 200px;
-  height:40px ;
+  height: 40px;
   text-align: center;
-border-radius: 10px;
-   background-color: #B00100;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  -ms-border-radius: 10px;
+  background-color: #B00100;
 
 }
- #button{
-   padding-top: 5%;
- }
- #text h2{
 
-   width: 70%;
-   padding-top: 5%;
- }
-#button h2{
+#button {
+  padding-top: 5%;
+}
+
+#text h2 {
+
+  width: 70%;
+  padding-top: 5%;
+}
+
+#button h2 {
   margin-top: 10px;
 }
 
