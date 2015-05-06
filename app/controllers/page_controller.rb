@@ -75,9 +75,6 @@ class PageController < ApplicationController
     render 'search'
   end
 
-  def edit
-    @score = Score.find(params[:id])
-  end
 
 
 end
