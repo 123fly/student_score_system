@@ -15,11 +15,12 @@ Rails.application.routes.draw do
   post '/student_landing' => 'page#student_landing'
   post '/student_finding' => 'page#student_finding'
   post '/save' => 'page#save'
-  post '/manager_search' => 'page#manager_search'
+  post '/search' => 'page#search'
   post '/history' => 'page#history'
   get '/edit'=>'page#edit'
   post '/update'=>'page#update'
-
+  get '/history' => 'page#history'
+  get '/manager_search'=> 'page#manager_search'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

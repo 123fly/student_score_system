@@ -47,13 +47,14 @@ class PageController < ApplicationController
   end
 
   def save
-    @score=Score.new(score_params)
+    @score = Score.new(score_params)
     @score.save
+
     render 'manager'
   end
 
   def score_params
-    params.permit(:name, :ability_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability)
+    params.permit(:name, :ability_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability, :number)
   end
 
   def student
@@ -66,17 +67,27 @@ class PageController < ApplicationController
   end
 
   def manager_search
-    @scores = Score.where('name = ?', params[:name])
+
+  end
+
+  def search
+    if params[:name] != nil
+    session[:name] = params[:name]
+    end
+    @scores = Score.where('name = ?', session[:name]).paginate :page => params[:page], :per_page => 1
     render 'search'
   end
 
   def history
-    @scores = Score.all
+
+    @scores = Score.paginate :page => params[:page], :per_page => 10
     render 'search'
   end
+
   def edit
 
   end
+
   def update
     @scores = Score.find_by_id(params[:id])
 
