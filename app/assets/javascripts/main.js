@@ -17,3 +17,24 @@ function openSearchPage(){
 function returnLandingPage(){
     window.location.href='landing.html'
 }
+function showNumber(str)
+{
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("number").innerHTML=xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET","/ajax_number?name="+str,true);
+    xmlhttp.send();
+}

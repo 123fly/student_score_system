@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   post '/update'=>'page#update'
   get '/history' => 'page#history'
   get '/manager_search'=> 'page#manager_search'
+  get '/ajax_number' => 'page#ajax_number'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

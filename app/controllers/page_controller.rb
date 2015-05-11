@@ -72,9 +72,9 @@ class PageController < ApplicationController
 
   def search
     if params[:name] != nil
-    session[:name] = params[:name]
+      session[:name] = params[:name]
     end
-    @scores = Score.where('name = ?', session[:name]).paginate :page => params[:page], :per_page => 1
+    @scores = Score.where('name = ?', session[:name]).paginate :page => params[:page], :per_page => 10
     render 'search'
   end
 
@@ -95,6 +95,19 @@ class PageController < ApplicationController
       render 'manager'
     else
       render 'edit'
+    end
+  end
+
+  def ajax_number
+    @score = Score.where('name = ?', params[:name]).last
+    if @score != nil
+      respond_to do |format|
+        format.json { render :xml => '已经评到第'+@score.number+'周'.to_json }
+      end
+    else
+      respond_to do |format|
+        format.json { render :xml => '已经评到第0周'.to_json }
+      end
     end
   end
 
