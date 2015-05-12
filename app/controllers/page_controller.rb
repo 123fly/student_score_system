@@ -14,7 +14,7 @@ class PageController < ApplicationController
       @user = User.authenticate(params[:id], params[:pass])
       if @user
         session[:user_id] = @user.id
-        @scores = Score.where('name = ?', User.find_by_user_id(params[:id]).name)
+        flash[:notice]="登录成功"
         render 'student'
       else
         flash[:notice]="帐号与密码不匹配"
@@ -49,6 +49,7 @@ class PageController < ApplicationController
   def save
     @score = Score.new(score_params)
     @score.save
+
     render 'manager'
   end
 
@@ -78,6 +79,7 @@ class PageController < ApplicationController
   end
 
   def history
+
     @scores = Score.paginate :page => params[:page], :per_page => 10
     render 'search'
   end
@@ -88,6 +90,7 @@ class PageController < ApplicationController
 
   def update
     @scores = Score.find_by_id(params[:id])
+
     if @scores.update(scores_params)
       render 'manager'
     else
@@ -99,11 +102,11 @@ class PageController < ApplicationController
     @score = Score.where('name = ?', params[:name]).last
     if @score != nil
       respond_to do |format|
-        format.json { render :xml => '已经评到第'+@score.number+'周' }
+        format.json { render :xml => '已经评到第'+@score.number+'周'.to_json }
       end
     else
       respond_to do |format|
-        format.json { render :xml => '已经评到第0周'}
+        format.json { render :xml => '已经评到第0周'.to_json }
       end
     end
   end
