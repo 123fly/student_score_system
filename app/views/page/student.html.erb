@@ -13,14 +13,25 @@
   <% end %>
   <% if @scores != nil %>
       <table>
+        <tr>
+          <th>帐号</th>
+          <th>姓名</th>
+          <th>沟通能力</th>
+          <th>职业素养</th>
+          <th>学习能力</th>
+          <th>演讲能力</th>
+          <th>综合能力</th>
+          <th>周</th>
+        </tr>
         <% @scores.each do |score| %>
             <tr>
-              <td>姓名：<%= score.name %></td>
-              <td>沟通能力：<%= score.ability_to_communicate %></td>
-              <td>职业素养：<%= score.professional_quality %></td>
-              <td>学习能力：<%= score.ability_to_learn %></td>
-              <td>沟通能力：<%= score.speech_ability %></td>
-              <td>综合能力：<%= score.comprehensive_ability %></td>
+              <td><%= User.find_by_name(score.name).user_id%></td>
+              <td><%= score.name %></td>
+              <td><%= score.ability_to_communicate %></td>
+              <td><%= score.professional_quality %></td>
+              <td><%= score.ability_to_learn %></td>
+              <td><%= score.speech_ability %></td>
+              <td><%= score.comprehensive_ability %></td>
               <td>第<%= score.number %>周评分</td>
             </tr>
         <% end %>

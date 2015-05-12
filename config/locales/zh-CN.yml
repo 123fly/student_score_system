@@ -20,8 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 zh-CN:
- activerecord:
-  errors:
+  activerecord:
+   errors:
 
       models:
         user:
@@ -37,3 +37,4 @@ zh-CN:
             too_short: '6位以上字母数字或符号'
           email:
             blank: '不能为空'
+            taken:  '已注册'
