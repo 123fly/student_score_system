@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/history' => 'page#history'
   get '/manager_search'=> 'page#manager_search'
   get '/ajax_number' => 'page#ajax_number'
+ get '/lookup' => 'page#lookup'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

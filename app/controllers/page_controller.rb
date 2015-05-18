@@ -14,7 +14,7 @@ class PageController < ApplicationController
       @user = User.authenticate(params[:id], params[:pass])
       if @user
         session[:user_id] = @user.id
-        flash[:notice]="登录成功"
+        @scores = Score.where('name = ?', User.find_by_user_id(params[:id]).name).paginate :page => params[:page], :per_page => 10
         render 'student'
       else
         flash[:notice]="帐号与密码不匹配"
@@ -32,7 +32,8 @@ class PageController < ApplicationController
   def register_user
     @users = User.new(user_params)
     if @users.save
-      render "landing"
+      session[:user_id] = @user.id
+      render 'landing'
     else
       render 'register'
     end
@@ -49,7 +50,6 @@ class PageController < ApplicationController
   def save
     @score = Score.new(score_params)
     @score.save
-
     render 'manager'
   end
 
@@ -111,10 +111,20 @@ class PageController < ApplicationController
     end
   end
 
+  def lookup
+    @scores = Score.where('name = ?', User.find_by_user_id(params[:id]).name).paginate :page => params[:page], :per_page => 10
+    render 'lookup'
+  end
+
+  def return
+    session.delete(:user_id)
+    @User = nil
+
+  end
+
   private
   def scores_params
     params.permit(:ability_to_communicate, :professional_quality, :ability_to_learn, :speech_ability, :comprehensive_ability)
   end
-
 
 end

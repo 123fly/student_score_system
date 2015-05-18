@@ -21,6 +21,7 @@
 <% if @scores != nil %>
     <table>
       <tr>
+
         <th>帐号</th>
         <th>姓名</th>
         <th>沟通能力</th>
@@ -43,10 +44,8 @@
             <td><%= score.comprehensive_ability %></td>
             <td>第<%= score.number %>周评分</td>
             <td><%= link_to '修改', edit_path(score) %></td>
-
           </tr>
       <% end %>
     </table>
     <%= will_paginate @scores, :previous_label => '上一页', :next_label => '下一页' %>
 <% end %>
-</div>
