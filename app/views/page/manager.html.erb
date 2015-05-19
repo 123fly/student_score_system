@@ -1,8 +1,11 @@
 <div>
   <div class="title">
-    <div class="return">
-      <button onclick="returnLandingPage()">注销</button>
-    </div>
+      <div align="right">
+        <%= form_tag("/out") do %>
+            <%= submit_tag("退出") %>
+        <% end %>
+      </div>
+
     <div>
       <button onclick="openManagerPage()">评分</button>
       <button onclick="openSearchPage()">查询</button>
@@ -10,7 +13,7 @@
   </div>
   <div id="score">
     <%= form_tag("/save") do %>
-        姓名：<%= select_tag(:name, options_from_collection_for_select(User.all, :name, :name), :onclick=>'showNumber(this.value)')  %>
+        姓名：<%= select_tag(:user_id, options_from_collection_for_select(User.all, :name, :name), :onclick=>'showNumber(this.value)')  %>
         <div id="number"></div>
         选择评定第<%= text_field_tag(:number) %>周
         <br>
@@ -42,4 +45,5 @@
         <%= submit_tag("保存") %>
     <% end %>
   </div>
+
 </div>

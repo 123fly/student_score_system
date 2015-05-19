@@ -8,8 +8,9 @@ class PageController < ApplicationController
   end
 
   def user_landing
-    if params[:id]=='ad'&&params[:pass]=='ad'
-      render 'manager'
+    if params[:id]=='999'&&params[:pass]=='6666'
+      @user = Score.paginate :page => params[:page], :per_page => 10
+      render 'search'
     else
       @user = User.authenticate(params[:id], params[:pass])
       if @user
@@ -32,7 +33,8 @@ class PageController < ApplicationController
   def register_user
     @users = User.new(user_params)
     if @users.save
-      session[:user_id] = @user.id
+
+      @user = User.authenticate(params[:id], params[:pass])
       render 'landing'
     else
       render 'register'
@@ -116,11 +118,12 @@ class PageController < ApplicationController
     render 'lookup'
   end
 
-  def return
-    session.delete(:user_id)
-    @User = nil
+  def out
 
+    render 'landing'
   end
+
+
 
   private
   def scores_params

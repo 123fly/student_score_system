@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/manager_search'=> 'page#manager_search'
   get '/ajax_number' => 'page#ajax_number'
  get '/lookup' => 'page#lookup'
+  post'/out' => 'page#landing'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

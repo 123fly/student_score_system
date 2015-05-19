@@ -1,6 +1,7 @@
 class CreateScores < ActiveRecord::Migration
   def change
     create_table :scores do |t|
+      t.string :user_id
       t.string :name
       t.string :ability_to_communicate
       t.string :professional_quality

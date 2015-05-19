@@ -1,5 +1,7 @@
-<div class="return">
-  <button onclick="returnLandingPage()">注销</button>
+<div align="right">
+  <%= form_tag("/out") do %>
+      <%= submit_tag("退出") %>
+  <% end %>
 </div>
 <div align="center">
 

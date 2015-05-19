@@ -1,7 +1,9 @@
 <div>
   <div class="title">
-    <div class="return">
-      <button onclick="returnLandingPage()">注销</button>
+    <div align="right">
+      <%= form_tag("/out") do %>
+          <%= submit_tag("退出") %>
+      <% end %>
     </div>
     <button onclick="openManagerPage()">评分</button>
     <button onclick="openSearchPage()">查询</button>

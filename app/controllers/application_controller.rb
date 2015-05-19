@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
 class   Users<ActiveRecord::Base
-                  has_one :Score
+                  has_many :Score
 end
 class  Sscore<ActiveRecord::Base
-                 has_one :User
+                 has_many :User
 
 end
   # Prevent CSRF attacks by raising an exception.
