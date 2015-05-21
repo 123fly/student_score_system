@@ -9,7 +9,6 @@ class PageController < ApplicationController
 
   def user_landing
     if params[:id]=='999'&&params[:pass]=='6666'
-      @user = Score.paginate :page => params[:page], :per_page => 10
       render 'search'
     else
       @user = User.authenticate(params[:id], params[:pass])

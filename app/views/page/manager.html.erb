@@ -1,4 +1,4 @@
-<div>
+
   <div class="title">
       <div align="right">
         <%= form_tag("/out") do %>
@@ -45,5 +45,23 @@
         <%= submit_tag("保存") %>
     <% end %>
   </div>
+  </div>
+  <% if @users != nil %>
+      <table>
+        <tr>
+          <th>帐号</th>
+          <th>姓名</th>
+          <th>邮箱</th>
+          <th>状态</th>
+        </tr>
+        <% @users.each do |user| %>
+            <tr>
+              <td><%= link_to user_id, lookup_path({id:user_id}) %></td>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
 
-</div>
+            </tr>
+        <% end %>
+      </table>
+      <%= will_paginate @scores, :previous_label => '上一页', :next_label => '下一页' %>
+  <% end %>
